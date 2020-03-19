@@ -1,0 +1,81 @@
+   <!-- Sidebar -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">
+               Controls
+            </a>
+        </li>
+        <li>
+            <a href="#"><h3>Box Measurements</h3></a>
+            <div class="group-modules">
+                
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="listofDims">Choose:</label>
+                    <select #listofDims class="form-control col-md-8 dash-form-control select2" 
+                    [(ngModel)]="selectedDim" >
+                        <option selected > </option>
+                        <option *ngFor="let dimens of dimensions;" [ngValue]="dimens">{{dimens.title}}</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="length">Length</label>
+                    <input class="form-control col-md-7" #length  placeholder="Enter length" 
+                    [ngModel]="selectedDim?.lenth" type="text">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="width">Width</label>
+                    <input class="form-control col-md-7" #width placeholder="Enter width"
+                    [ngModel]="selectedDim?.width" type="text">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="height">Height</label>
+                    <input class="form-control col-md-7" #height placeholder="Enter height"
+                    [ngModel]="selectedDim?.height" type="text">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="priority">Priority</label>
+                    <input class="form-control col-md-7" id="priority" placeholder="Enter priority" type="text">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label" for="name">Name</label>
+                    <input class="form-control col-md-7" #name placeholder="Enter Name" type="text">
+                </div>
+                <div class="card-footer">
+                <button class="btn btn-md btn-primary" [disabled]="!length.value || !width.value || !height.value ? 'disabled': null"
+                (click)="addNewBox(length.value, width.value, height.value, name.value)">
+                    <i class="fa fa-dot-circle-o"></i>
+                     Add Box
+                </button>
+            </div>
+            </div>
+        </li>
+        <li>
+            <a href="#">Title 2</a>
+        </li>
+        <li>
+            <a href="#">Title 3</a>
+        </li>
+        <li>
+            <a href="#">Title 4</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Title 5 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">Dropdown heading</li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+        <li>
+            <a href="#">Title 7</a>
+        </li>        
+        <li>
+            <a href="#">Title 8</a>
+        </li>
+    </ul>
+</nav>
+<!-- /#sidebar-wrapper -->
